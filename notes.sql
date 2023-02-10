@@ -7,3 +7,12 @@
 SELECT * FROM Dishes;
 SELECT * FROM Customers;
 
+CREATE TABLE AnniversaryAttendees (
+  CustomerID INTEGER,
+  PartySize INTEGER
+);
+
+SELECT Customers.FirstName, Customers.LastName, Customers.Email, Reservations.Date, Reservations.PartySize
+FROM Customers
+JOIN Reservations ON Customers.CustomerID = Reservations.CustomerID
+WHERE Customers.Email = 'smac@kinetecoinc.com';
