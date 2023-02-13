@@ -7,5 +7,12 @@ GROUP BY PatronId
 ORDER BY COUNT(PatronID);
 
 
-SELECT COUNT(Loans.PatronID), Patrons.FirstName, Patrons.Email, 
+SELECT COUNT(Loans.PatronID) AS TotalCheckouts, Patrons.FirstName, Patrons.Email
 FROM Loans
+JOIN Patrons ON Loans.PatronID = Patrons.PatronID
+GROUP BY Patrons.PatronID
+ORDER BY COUNT(Loans.PatronID)
+LIMIT 15;
+
+
+
