@@ -6,22 +6,15 @@
 -- Report 2: Show the five books that have been
 -- checked out the most.
 
-
-SELECT COUNT(*), Published
+SELECT COUNT(DISTINCT Title) as PubCount, Published
 FROM Books
 GROUP BY Published
 ORDER BY Published DESC;
 
 
-SELECT COUNT(DISTINCT Title), Published
-FROM Books
-GROUP BY Published
-ORDER BY Published DESC;
-
-
-SELECT COUNT(Loans.LoanID), Books.Title
+SELECT COUNT(Loans.LoanID) as LoanCount, Books.Title
 FROM Loans
 JOIN Books ON Loans.BookID=Books.BookID
 GROUP BY Books.Title
-ORDER BY COUNT(Loans.LoanID) DESC
+ORDER BY LoanCount DESC
 LIMIT 5;
