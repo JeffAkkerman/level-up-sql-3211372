@@ -38,15 +38,3 @@ WHERE
 
 SELECT * FROM Loans
 WHERE ReturnedDate == '2022-07-05';
-
-
-UPDATE Loans
-JOIN Books ON Loans.BookID == Loans.BookID
-SET ReturnedDate = '2022-07-05'
-WHERE
-  Barcode == 6435968624
-  OR Barcode == 5677520613
-  OR Barcode == 8730298424;
-
-SELECT * FROM Loans
-WHERE ReturnedDate == '2022-07-05';
